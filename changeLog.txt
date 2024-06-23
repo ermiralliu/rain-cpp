@@ -1,0 +1,6 @@
+-the change I did just now:
+	removed init and fixed the constructors to initialize correctly
+	-this way, the object is pretty much always valid
+	removed clean and moved it all to the destructor
+	-you never need to clean an object, you can just take it out of scope or assign another object to it. This way it can never be invalid
+	moved SDL_initializer to main// game takes care of destroying it (I wish I could put it somewhere more practical, but I couldn't just put it in the constructor of game(or maybe I can). 
