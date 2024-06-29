@@ -12,13 +12,13 @@ int main(int argv, char** args){
         return 1;
 
     Game game(title, RES_X, RES_Y);
-    auto& dest = game.rain.dest;
-    auto sth = std::async(std::launch::async, [dest](){
-                                                        for(const auto& drop: dest)
-                                                            std::cout<< drop.y<<'\n';
-                                                        std::cout<<std::endl;
-                                                        return true;
-                                                    });
+    //auto& dest = game.rain.dest;
+    // auto sth = std::async(std::launch::async, [dest](){
+    //                                                     for(const auto& drop: dest)
+    //                                                         std::cout<< drop.y<<'\n';
+    //                                                     std::cout<<std::endl;
+    //                                                     return true;
+    //                                                 });
     
     while(game.running()){
         auto frameStart = SDL_GetTicks();

@@ -1,1 +1,1 @@
-g++ -std=c++20 code/*.cpp  -Wall  -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -O3 -o bin/Animations.exe
+g++ -std=c++20 src/*.cpp  -Wall  -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -O3 -o bin/Animations.exe

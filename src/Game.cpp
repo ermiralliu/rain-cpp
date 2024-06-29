@@ -1,6 +1,7 @@
 #include "Game.hpp"
 #include <functional>
 #include "windowManagement.hpp"
+#include <thread>
 
 Game::Game(const char* title, int X_POS, int Y_POS, int WIDTH, int HEIGHT, Uint32 flags): 
     window{ SDL_CreateWindow(title, X_POS, Y_POS, WIDTH, HEIGHT, flags) } ,
@@ -27,6 +28,7 @@ Game::~Game(){
 }
 
 void change(int& number, int min, int max, const char* min_message, const char* max_message){
+    std::cout<<"Please enter a value:\n";
     int next;
     std::cin>>next;
     while(next > max || next <min){
@@ -70,14 +72,19 @@ void Game::handleEvents(){
                 case SDLK_ESCAPE:
                     isRunning =false;
                     return;
-                case SDLK_r:
+                case SDLK_r:{
                     showConsole();
-                    finished = std::async(std::launch::async, change, std::ref(speed.y), 0, 20, "too small", "too big");
+                    //finished = std::async(std::launch::async, change, std::ref(speed.y), 0, 20, "too small", "too big");
+                    std::thread (change, std::ref(speed.y), 0, 20, "too small", "too big").detach();
+                    //supposedly you should never use detach, but tf esle am I supposed to do in this case
                     break;
-                case SDLK_e:
+                }
+                case SDLK_e:{
                     showConsole();
-                    finished = std::async(std::launch::async, change, std::ref(speed.x), -20, 20, "too small", "too big");
+                    //finished = std::async(std::launch::async, change, std::ref(speed.x), -20, 20, "too small", "too big");
+                    std::thread (change, std::ref(speed.x), -20, 20, "too small", "too big").detach();
                     break;
+                }
                 default:
                     break;
             }

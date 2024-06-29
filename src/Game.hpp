@@ -5,12 +5,10 @@
 #include "Render.hpp"
 #include <iostream>
 #include <vector>
-#include <list>
 #include "RepeatedGameObjects.hpp"
 #include "Rain.hpp"
 #include "GameObject.hpp"
-//#include <thread>
-#include <future>
+//#include <future>
 
 struct vector_2D{
     int x,y;
@@ -26,7 +24,7 @@ class Game{
         vector_2D speed{0,4};
         vector_2D first;
         bool activeMouse{false};    
-        std::future<void> finished;                 //doesn't hold a value but it is necessary to keep the async process going
+        //std::future<void> finished;                 //doesn't hold a value but it is necessary to keep the async process going
     
     public:
         RepeatedGameObjects rain;
