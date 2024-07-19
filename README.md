@@ -2,7 +2,7 @@
 
 ### Specs:
 - A rendition of "Rain Simulator" that better utilizes the features of C++.
-- Using std::future and async to allow the user to work on the console without interrupting the application.
+- Using a separate thread for user input, to allow work on the console without interrupting the application.
 - Using wrapper classes that work like unique pointers.
 
 ### Commands:
