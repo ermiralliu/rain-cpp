@@ -1,11 +1,9 @@
 #include "Game.hpp"
-#include <SDL_timer.h>
 
 constexpr const char title[] = "Animations"; //for some reason the template didn't accept it if declared in main
 constexpr int RES_X { 1280 };
 constexpr int RES_Y { 720 };
-
-constexpr int FRAME_DELAY{ 16 };
+constexpr int FRAME_DELAY{ 16 };    //a bit more than 60 fps
 
 int main(int argc, char* argv[]){
     if(SDL_Init(SDL_INIT_EVERYTHING) !=0)   //if the program isn't initialized successfully, exit 1;

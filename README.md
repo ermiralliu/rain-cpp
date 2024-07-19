@@ -44,4 +44,4 @@ cmake --build build
 ```
 Paste the assets folder to build
 ```
-- Now you can run the executable on the build folder
+- Now you can run the executable which is found in the build folder

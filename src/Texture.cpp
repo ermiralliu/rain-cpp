@@ -8,6 +8,17 @@ Texture::Texture(const char* title, SDL_Renderer* renderer){
 }
 
 Texture::~Texture(){
-    if(isValid())    
+    if(texture != NULL)
         SDL_DestroyTexture(texture);
+}
+
+Texture& Texture::operator=(Texture& two) noexcept{
+    std::swap(this->texture, two.texture);
+    return *this;
+}
+
+Texture& Texture::operator=(Texture&& two) noexcept{   //move assignment
+    SDL_DestroyTexture(texture);
+    texture = two.texture;
+    return *this;
 }

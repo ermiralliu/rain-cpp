@@ -1,35 +1,22 @@
 #ifndef TEXTURE_ENVELOPE
 #define TEXTURE_ENVELOPE
 
-#define SDL_MAIN_HANDLED
 #include <SDL_render.h>
 
-struct Texture{
+struct Texture{ // Wrapper for SDL_Texture
+    private:
         SDL_Texture* texture;
+    public:
+        Texture(const char* title, SDL_Renderer* renderer);
+        Texture& operator=(Texture& two) noexcept;   //copy assignment turned into switch assignment
 
-        void operator=(Texture two){
-            SDL_DestroyTexture(texture);
-            texture = two.texture;
-        }
-        void operator=(SDL_Texture* two){
-            SDL_DestroyTexture(texture);
-            texture = two;
-        }
-        void set(SDL_Texture* two){                 //only used when we are maybe setting from an array, and don't need to destroy the original texture
-            texture = two;
-        }
+        Texture& operator=(Texture&& two) noexcept;   //move assignment
 
-        inline SDL_Texture*& operator()(){
+        inline operator SDL_Texture*() const{ //returns to the name, let's hope all the const make it immutable
             return texture;
         }
 
-        Texture(const char* title, SDL_Renderer* renderer);
-        
-        inline bool isValid(){ 
-            return texture != 0;
-        }
-
         ~Texture();
-};
+};//we've secured that no memory leaks will happen
 
 #endif

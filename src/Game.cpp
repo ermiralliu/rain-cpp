@@ -1,21 +1,18 @@
 #include "Game.hpp"
-#include <functional>
 #include "windowManagement.hpp"
 #include <thread>
 #include <iostream>
 #define SDL_MAIN_HANDLED
 
-
 Game::Game(const char* title, int X_POS, int Y_POS, int WIDTH, int HEIGHT, Uint32 flags): 
     window{ SDL_CreateWindow(title, X_POS, Y_POS, WIDTH, HEIGHT, flags) } ,
     renderer{ window } ,
-    background{ "assets/sky1.png", renderer()},
-    rain{ Rain::initRain("assets/snow.png", renderer(), 3072, WIDTH, HEIGHT) }    
+    background{ "assets/sky1.png", renderer},
+    rain{ Rain::initRain("assets/snow.png", renderer, 3072, WIDTH, HEIGHT) }    
     {                                               //this is where the function body is
-        
         renderer.setDrawColor(0, 0, 0, 255);
         renderer.clear();
-        if(window!=0 && renderer.isValid()){
+        if(window!=0 && renderer){
             isRunning = true;               //so this is what stops the program if the Initialization is Unsuccessful
             exeToForeground("Animations");
         }            
@@ -117,8 +114,8 @@ void Game::render(){
     //renderer.setDrawColor(0, 0, 0, 255);      //cause not necessary
     renderer.clear();
     //here we show the textures:
-    background.show(renderer());
-    rain.show( renderer() );          //it cleans out far more arguments if we have renderer as an argument and texture as an object
-    //present:
+    renderer.copy( background );   //copies their textures into the stuff
+    renderer.copy( rain );
+    
     renderer.present();
 }

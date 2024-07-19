@@ -3,20 +3,17 @@
 
 #include <SDL.h>
 #include "Render.hpp"
-#include "RepeatedGameObjects.hpp"
 #include "Rain.hpp"
 #include "GameObject.hpp"
 //#include <future>
 
-struct vector_2D{
-    int x,y;
-};
+using vector_2D = SDL_Point;
 
 class Game{
     private:
         SDL_Window* window;
         Renderer renderer;
-        GameObject background;
+        GameObject<WithTexture::YES> background;
         bool isRunning;
         bool taskFinished{false};
         vector_2D speed{0,4};
@@ -25,7 +22,7 @@ class Game{
         //std::future<void> finished;                 //doesn't hold a value but it is necessary to keep the async process going
     
     public:
-        RepeatedGameObjects rain;
+        RepeatedGameObject<CommonSource::YES> rain;
         Game(const char* title, int X_POS, int Y_POS, int WIDTH, int HEIGHT, Uint32 flags);
         Game(const char* title, int WIDTH, int HEIGHT);
         ~Game();
@@ -33,9 +30,7 @@ class Game{
         void handleEvents();
         void update();
         void render();
-        std::vector<SDL_FRect> getCurrentRainDest(){
-            return rain.dest;
-        }
+        
         inline bool running(){return isRunning;};
         
 };
