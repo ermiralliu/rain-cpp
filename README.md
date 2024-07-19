@@ -16,8 +16,10 @@ Press 't' for horizontal rain speed
 In both cases the console will appear and ask for user input
 
 ```
-You can press somewhere with the mouse, then the points will follow the direction the cursor goes, and will speed up based on the distance from the initial clicking point. 
-You can click again and they will maintain the same movement as before clicking. 
+- You can press somewhere with the mouse, 
+then the points will follow the direction the cursor goes, 
+and will speed up based on the distance from the initial clicking point. 
+- You can click again and they will maintain the same movement as before clicking. 
 ```
 
 ### Future:
