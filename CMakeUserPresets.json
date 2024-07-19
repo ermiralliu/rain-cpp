@@ -13,7 +13,7 @@
       }
     },
     {
-      "name": "defualt",
+      "name": "default",
       "inherits": "vcpkg",
       "environment": {
         "VCPKG_ROOT": "E:/dev/vcpkg"
