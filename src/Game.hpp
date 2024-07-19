@@ -1,10 +1,8 @@
 #ifndef GAME_hpp
 #define GAME_hpp
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include "Render.hpp"
-#include <iostream>
-#include <vector>
 #include "RepeatedGameObjects.hpp"
 #include "Rain.hpp"
 #include "GameObject.hpp"

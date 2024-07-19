@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "mingw",
+      "inherits": "vcpkg",
+      "environment": {
+        "VCPKG_ROOT": "E:/dev/vcpkg"
+      },
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-mingw-static",
+        "VCPKG_HOST_TRIPLET": "x64-mingw-static"
+      }
+    },
+    {
+      "name": "defualt",
+      "inherits": "vcpkg",
+      "environment": {
+        "VCPKG_ROOT": "E:/dev/vcpkg"
+      }
+    }
+  ]
+}

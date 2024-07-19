@@ -1,5 +1,5 @@
 #include "Texture.hpp"
-#include <SDL2/SDL_image.h>
+#include <SDL_image.h>
 
 Texture::Texture(const char* title, SDL_Renderer* renderer){
     SDL_Surface* tempSurface = IMG_Load(title);

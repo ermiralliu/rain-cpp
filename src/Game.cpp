@@ -2,6 +2,9 @@
 #include <functional>
 #include "windowManagement.hpp"
 #include <thread>
+#include <iostream>
+#define SDL_MAIN_HANDLED
+
 
 Game::Game(const char* title, int X_POS, int Y_POS, int WIDTH, int HEIGHT, Uint32 flags): 
     window{ SDL_CreateWindow(title, X_POS, Y_POS, WIDTH, HEIGHT, flags) } ,
@@ -9,6 +12,7 @@ Game::Game(const char* title, int X_POS, int Y_POS, int WIDTH, int HEIGHT, Uint3
     background{ "assets/sky1.png", renderer()},
     rain{ Rain::initRain("assets/snow.png", renderer(), 3072, WIDTH, HEIGHT) }    
     {                                               //this is where the function body is
+        
         renderer.setDrawColor(0, 0, 0, 255);
         renderer.clear();
         if(window!=0 && renderer.isValid()){

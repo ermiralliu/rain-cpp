@@ -2,7 +2,7 @@
 #define TEXTURE_ENVELOPE
 
 #define SDL_MAIN_HANDLED
-#include <SDL2/SDL_render.h>
+#include <SDL_render.h>
 
 struct Texture{
         SDL_Texture* texture;
